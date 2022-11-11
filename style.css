@@ -1,0 +1,27 @@
+
+.table-car{
+    display: flex;
+    justify-content: center;
+}
+
+table{
+    color: white;
+    background-color: black;
+    width: 60%;
+    text-align: center;
+    border: 5px goldenrod solid;
+}
+
+th{
+    font-size: 1.6em;
+     line-height: 1.6;
+}
+
+tr{ 
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+
+td{
+   
+}
