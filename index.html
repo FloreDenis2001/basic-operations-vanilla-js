@@ -4,52 +4,143 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/a4fb4fc945.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
+
+    <header>
+        <section class="search">
+            <h3 class="search-head">SEARCH</h3>
+            <div class="name-container">
+            <label for="name">Name : </label>
+            <input class="name" type="text" id="name">
+            </div>
+            <button class="btn-search">Search<i class="fa-solid fa-magnifying-glass icon-search"></i></button>
+        </section>
+
+        
+
+        <section class="filter">
+            <h3 class="filter-head">FILTER</h3>
+
+            
+            <div class="makerandmodel">
+
+            <div class="filter-maker">
+
+            <label for="maker">Maker : </label>
+            <select class="maker" name="make" id="makerId">
+            </select>
+
+            </div>
+
+            <div class="filter-model">
+
+            <label for="model">Model : </label>
+            <select class="model" name="model" id="modelId">
+            </select>
+
+            </div>
+
+            <div class="filter-sort">
+
+                <label for="sort">Sort : </label>
+                <select class="sort" name="sort" id="sortId">
+                    <option value="" disabled selected>Select a option</option>
+                    <option value="make">Make</option>
+                    <option value="model">Model</option>
+                    <option value="year">Year</option>
+                </select>
+    
+            </div>
+        
+           </div>
+
+        </section>
+
+    
+
+    </header>
+
+
+    <main>
+   
+
     <div class="table-car">
-    <table>
-        <tr>
-            <th>Make</th>
-            <th>Model</th>
-            <th>Year</th>
-            <th>VIN</th>
-            <th>USED</th>
-        </tr>
+    <table  class="cars">
 
-        <tr>
-            <td>Mercedes</td>
-            <td>S class</td>
-            <td>2015</td>
-            <td>5124512851851</td>
-            <td>false</td>
-        </tr>
+        <thead>
+            <tr>
+                <th>Make</th>
+                <th>Model</th>
+                <th>Year</th>
+                <th>VIN</th>
+                <th>USED</th>
+                <th>DELETE</th>
+            </tr>
 
-        <tr>
-            <td>Honda</td>
-            <td>Civic</td>
-            <td>2022</td>
-            <td>5124512851851</td>
-            <td>true</td>
-        </tr>
 
-        <tr>
-            <td>Ford</td>
-            <td>Mustang</td>
-            <td>2019</td>
-            <td>5124512851851</td>
-            <td>true</td>
-        </tr>
+            <tr>
+                <td>BMW</td>
+                <td>SERIA 8</td>
+                <td>2020</td>
+                <td>14128094120941287049</td>
+                <td>false</td>
+                <td><button class="delete-btn">DELETE</button></td>
+            </tr>
 
-        <tr>
-            <td>BMW</td>
-            <td>Seria 8</td>
-            <td>2018</td>
-            <td>5124512851851</td>
-            <td>true</td>
-        </tr>
+
+
+        </thead>
+       <tbody class="container">
+      
+
+       </tbody>
+
+       
+
     </table>
+    </div>
+
+    <section class="post-forms">
+        <h3 class="filter-head">New Post</h3>
+        <div class="postadd">
+            <label for="maker">Maker : </label>
+           <input class="add-maker" type="text">
+        </div>
+        <div class="postadd ">
+            <label for="model">Model : </label>
+           <input class="add-model" type="text">
+        </div>
+        <div class="postadd ">
+            <label for="year">Year : </label>
+           <input class="add-year" type="number" min="1970">
+        </div>
+
+        <div class="postadd ">
+            <label for="vin">VIN : </label>
+           <input class="add-vin" type="text">
+        </div>
+
+        <div class="postadd">
+            <label for="used">Used : </label>
+           <select class="add-used" name="used" id="usedId">
+            <option value="" disabled selected>Select option</option>
+            <option value="true">True</option>
+            <option value="false">False</option>
+           </select>
+        </div>
+
+        <button class="btnpost btn-search">Post</button>
+
+     </section>
+
+
+    </main>
+
+
 
     <script src="./data.js"></script>
     <script src="./functions.js"></script>

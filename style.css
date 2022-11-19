@@ -1,9 +1,11 @@
-
-.table-car{
-    display: flex;
-    justify-content: center;
+body {
+    margin:0;
 }
 
+
+/* .main{
+
+} */
 table{
     color: white;
     background-color: black;
@@ -20,4 +22,160 @@ th{
 tr{ 
     font-size: 1.2em;
     line-height: 1.6;
+}
+
+header{
+    background-color: rgb(88, 146, 221);
+    padding: 1px;
+    padding-bottom: 50px;
+  display: flex;
+  flex-direction: row;
+}
+.search{
+    margin-left: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.search-head{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.6em;
+}
+
+label[for="name"]{
+    font-size: 1.2em;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+label,input,select{
+    display: block;
+    margin-left: 10px;
+}
+
+.icon-search{
+    margin:5px;
+    color: aqua;
+    font-size: 1em;
+}
+
+.btn-search{
+    width: 120px;
+   margin-top: 10px;
+   background-color: rgb(75, 74, 155);
+   font-size: 1.2em;
+   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   color: white;
+}
+
+label{
+    font-size: 1.2em;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.name-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.filter-head{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.6em;
+}
+
+.filter{
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.filter-maker{
+    display: flex;
+    flex-direction: row;
+}
+
+.makerandmodel{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+.maker , .model , .sort{
+    width: 120px;
+    height: 30px;
+}
+
+.filter-model,.filter-sort{
+    display: flex;
+    flex-direction: row;
+}
+
+
+.table-car{
+
+   height: 79vh;
+    overflow-y:auto;
+    padding: 0px;
+    width: 70%;
+    
+}
+
+.cars{
+
+    width: 100%;
+}
+
+main{
+    background-color:rgb(88, 146, 221);
+    display: flex;
+    flex-direction: row;
+}
+
+.postadd{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.post-forms{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 100px;
+}
+
+.btnpost{
+    margin-top: 50px;
+}
+
+.delete-btn{
+    background-color: rgb(97, 156, 115);
+    max-width: 70px;
+    height: 30px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: whitesmoke;
+    position: relative; 
+}
+
+
+.delete-btn:before{
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: scale(5);
+    opacity: 0;
+}
+
+/* .delete-btn:hover{
+   
+} */
+
+.anim{
+    transform: scale(0);
+    opacity: 1;
+    transition:all 3s;
 }
