@@ -28,7 +28,7 @@ function addnewcar(arr,newcar){
 function filterForMake(arr,maker){
     let filterCar=[];
     for(let i=0;i<arr.length;i++){
-        if(arr[i].make===maker){
+        if(arr[i].make.toLowerCase().includes(maker.toLowerCase())){
           filterCar.push(arr[i]);
         }
     }
@@ -55,7 +55,28 @@ function filterUsed(arr,option){
     return filterCar;
 }
 
+function filterMakeOnce(arr){
+    let filterMaker=[];
+    for(let i=0;i<arr.length;i++){
 
+            if(!filterMaker.includes(arr[i].make)){
+
+                filterMaker.push(arr[i].make);
+            }   
+    }
+    return filterMaker.sort();
+}
+
+function filterModelsOfTheCar(arr,maker){
+    let filterModelCar=[];
+    for(let i=0;i<arr.length;i++){
+        if(maker===arr[i].make){
+            if(!filterModelCar.includes(arr[i].model))
+                  filterModelCar.push(arr[i].model);
+        }
+    }
+    return filterModelCar.sort();
+}
 
 
 function removeCarByVin(arr,vin){
@@ -64,6 +85,8 @@ function removeCarByVin(arr,vin){
             arr.splice(arr[i],1);
         }
     }
+
+    return arr;
 }
 
 
@@ -88,7 +111,15 @@ function filterByModel(arr,model){
 }
 
 
-
+function filterByModelandMaker(arr,model,maker){
+    let filterByModel =[];
+    for(let i=0;i<arr.length;i++){
+        if(arr[i].model===model && arr[i].make===maker){
+           filterByModel.push(arr[i]);
+        }
+    }
+    return filterByModel;
+}
 
 function sortYear(a,b){
      
@@ -142,6 +173,7 @@ function createRow(masina){
     <td>${masina.year}</td>
     <td>${masina.vin}</td>
     <td>${masina.used}</td>
+    <td><button  class="delete-btn vin-${masina.vin}">DELETE</button></td>
     </tr>
     
     `
@@ -156,3 +188,31 @@ function createRows(arr){
     return text;
 }
 
+function createOption(option){
+    return `
+       <option value="${option}">${option}</option>
+    `
+}
+
+function createOptions(options){
+    let text='<option value="" disable selected>Select a option</option>';
+    for(let i=0;i<options.length;i++){
+        text+=createOption(options[i]);
+        // console.log(options[i]);
+    }
+    return text;
+}
+
+function sort(arr ,field){
+    let aux ;
+    for(let i=0;i<arr.length;i++){
+        for(let j=i+1;j<arr.length;j++){
+            if(arr[i][`${field}`]>arr[j][`${field}`]){
+                aux = arr[i];
+                arr[i]=arr[j];
+                arr[j]=aux;
+            }
+        }
+    }
+    return arr;
+}
