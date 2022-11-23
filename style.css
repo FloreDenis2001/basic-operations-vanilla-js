@@ -90,9 +90,11 @@ label{
 }
 
 
-.filter-maker{
+.filter-maker,.filter-year,.filter-model{
     display: flex;
     flex-direction: row;
+    align-content: center;
+    justify-content: center;
 }
 
 .makerandmodel{
@@ -150,13 +152,17 @@ main{
     margin-top: 50px;
 }
 
-.delete-btn{
-    background-color: rgb(97, 156, 115);
+.delete-btn,.update-btn{
+    background-color: rgb(233, 110, 110);
     max-width: 70px;
     height: 30px;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: whitesmoke;
     position: relative; 
+}
+
+.update-btn{
+    background-color: rgb(173, 149, 68);
 }
 
 
@@ -170,12 +176,23 @@ main{
     opacity: 0;
 }
 
-/* .delete-btn:hover{
-   
-} */
+
 
 .anim{
     transform: scale(0);
     opacity: 1;
     transition:all 3s;
+}
+
+.line-year{
+    font-size: 30px;
+    margin: 0;
+    margin-left: 10px;
+    width: 20px;
+}
+
+.dela,.panala{
+    width: 70px;
+    height: 25px;
+    margin-left: 10px;
 }
