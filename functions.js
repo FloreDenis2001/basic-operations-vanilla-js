@@ -38,12 +38,24 @@ function filterForMake(arr,maker){
 function filterOverYear(arr,year){
     let filterCar=[];
     for(let i=0;i<arr.length;i++){
+        if(arr[i].year>=year && !filterCar.includes(arr[i].year)){
+            filterCar.push(arr[i].year);
+        }
+    }
+    return filterCar.sort();
+}
+
+function filterOverYearCar(arr,year){
+    let filterCar=[];
+    for(let i=0;i<arr.length;i++){
         if(arr[i].year>=year){
             filterCar.push(arr[i]);
         }
     }
     return filterCar;
 }
+
+
 
 function filterUsed(arr,option){
     let filterCar=[];
@@ -80,15 +92,26 @@ function filterModelsOfTheCar(arr,maker){
 
 
 function removeCarByVin(arr,vin){
+    let filterVin=[];
     for(let i=0;i<arr.length;i++){
-        if(arr[i].vin===vin){
-            arr.splice(arr[i],1);
+        if(!(arr[i].vin===vin)){
+           filterId.push(arr[i]);
         }
     }
 
-    return arr;
+    return filterVin;
 }
 
+function removeCarById(arr,id){
+    let filterId=[];
+    for(let i=0;i<arr.length;i++){
+        if(!(arr[i].id===id)){
+           filterId.push(arr[i]);
+        }
+    }
+
+    return filterId;
+}
 
 function findCarByVin(arr,vin){
     for(let i=0;i<arr.length;i++){
@@ -168,12 +191,14 @@ function createRow(masina){
     return `
    
     <tr>
+    <td class="masina ${masina.id}">${masina.id}</td>
     <td>${masina.make}</td>
     <td>${masina.model}</td>
     <td>${masina.year}</td>
     <td>${masina.vin}</td>
     <td>${masina.used}</td>
-    <td><button  class="delete-btn vin-${masina.vin}">DELETE</button></td>
+    <td><button  class="delete-btn id-${masina.id}">DELETE</button></td>
+    
     </tr>
     
     `
@@ -215,4 +240,73 @@ function sort(arr ,field){
         }
     }
     return arr;
+}
+
+function minyearCars(arr){
+   let minCar=arr[0].year;
+   for(let i =1;i<arr.length;i++){
+    if(minCar>arr[i].year){
+        minCar=arr[i].year;
+    }
+   }
+   return minCar;
+}
+
+function maxyearCars(arr){
+    let maxCar=arr[0].year;
+    for(let i =1;i<arr.length;i++){
+
+     if(maxCar<arr[i].year){
+         maxCar=arr[i].year;
+     }
+
+    }
+    return maxCar;
+}
+
+function allyearsCar(arr){
+    let min=minyearCars(arr);
+    let max=maxyearCars(arr);
+    let number=min;
+    let allyears='<option value="" disable selected>Select a year</option>';
+    while(number<=max){
+         allyears += createOption(number);
+         number++;
+    }
+
+    return allyears;
+}
+
+function findCarById(arr,id){
+    for(let i=0;i<arr.length;i++){
+        if(arr[i].id===id){
+            return arr[i];
+        }
+    }
+    return null;
+}
+
+
+function lastCarId(arr,id){
+    let lastId;
+    for(let i=0;i<arr.length;i++){
+        lastId=arr[i].id;
+    }
+    return lastId;
+}
+
+function specialCarId(masini){
+
+    let randomNumber=Math.round(Math.random()*1000000+1);
+
+    while(findCarById(masini,randomNumber)!==null){
+         randomNumber=Math.round(Math.random()*1000000+1);
+    }
+
+  return randomNumber;
+}
+
+function update(masini) {
+    tableBody.innerHTML = createRows(masini);
+    makerselector.innerHTML = createOptions(filterMakeOnce(masini));
 }
